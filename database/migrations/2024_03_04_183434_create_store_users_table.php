@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('store_users', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->unsignedInteger('age');
+            $table->text('address');
+            $table->enum('gender', ['male', 'female', 'other']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
